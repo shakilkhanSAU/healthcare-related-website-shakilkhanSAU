@@ -1,5 +1,6 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;500;600;700&display=swap');
+*{
+  font-family: 'Asap', sans-serif;
 }
 
 .App-logo {
