@@ -3,10 +3,16 @@ import { Col, Row } from 'react-bootstrap';
 import backphoto from '../../../images/login.jpg';
 import google from '../../../images/google.png'
 import './Login.css'
+import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
+    const { signInWithGoogle } = useAuth();
+
+    const handleSingInGoogle = () => {
+        signInWithGoogle();
+    }
     return (
-        <div className="login py-3">
+        <div className="login py-5">
             <Row className="container">
                 <Col className="login-form mx-auto" sm={6}>
                     <div>
@@ -19,7 +25,7 @@ const Login = () => {
                         <button className="login-btn" type="submit">Log In</button>
                         <p className="text-center my-3">or</p>
 
-                        <button className="google-btn">
+                        <button onClick={handleSingInGoogle} className="google-btn">
                             <img src={google} alt="" />
                             Sign in with Google
                         </button>

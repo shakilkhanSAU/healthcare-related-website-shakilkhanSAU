@@ -4,25 +4,31 @@ import Header from './pages/Shared/Header/Header';
 import Home from './pages/Home/Home/Home';
 import SingleService from './pages/Services/SingleService/SingleService';
 import Login from './pages/Login/Login/Login';
+import AuthProvider from './Context/AuthProvider';
 
 
 function App() {
   return (
     <div>
-      <BrowserRouter>
-        <Header></Header>
-        <Switch>
-          <Route exact path="/home">
-            <Home></Home>
-          </Route>
-          <Route exact path="/services/:serviceId">
-            <SingleService></SingleService>
-          </Route>
-          <Route path="/login">
-            <Login></Login>
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <Header></Header>
+          <Switch>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <Route exact path="/home">
+              <Home></Home>
+            </Route>
+            <Route exact path="/services/:serviceId">
+              <SingleService></SingleService>
+            </Route>
+            <Route exact path="/login">
+              <Login></Login>
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
