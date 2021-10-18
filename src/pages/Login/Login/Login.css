@@ -51,3 +51,8 @@ input:focus {
     width: 23px;
     margin-right: 10px;
 }
+
+.toggler {
+    cursor: pointer;
+    color: crimson;
+}

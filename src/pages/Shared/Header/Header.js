@@ -20,9 +20,9 @@ const Header = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto">
                         <Link className="me-lg-3 nav-link" as={Link} to="/home">Home</Link>
-                        <Nav.Link className="me-lg-3 nav-link" as={Link} to="/home/#Services">Services</Nav.Link>
-                        <Nav.Link className="me-lg-3 nav-link" as={Link} to="/home/#Services">About</Nav.Link>
-                        <Nav.Link className="me-lg-3 nav-link" as={Link} to="/home/#Services">Contact</Nav.Link>
+                        <Nav.Link className="me-lg-3 nav-link" as={Link} to="#services">Services</Nav.Link>
+                        <Nav.Link className="me-lg-3 nav-link" as={Link} to="/about">About</Nav.Link>
+                        <Nav.Link className="me-lg-3 nav-link" as={Link} to="/contact">Contact</Nav.Link>
                         {
                             user.email ?
                                 <Nav.Link as={Link} to="/home" className="me-lg-3" onClick={handleLogOut}>Sign Out</Nav.Link> :

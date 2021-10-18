@@ -5,6 +5,7 @@ import Home from './pages/Home/Home/Home';
 import SingleService from './pages/Services/SingleService/SingleService';
 import Login from './pages/Login/Login/Login';
 import AuthProvider from './Context/AuthProvider';
+import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 
 
 function App() {
@@ -20,9 +21,9 @@ function App() {
             <Route exact path="/home">
               <Home></Home>
             </Route>
-            <Route exact path="/services/:serviceId">
+            <PrivateRoute exact path="/services/:serviceId">
               <SingleService></SingleService>
-            </Route>
+            </PrivateRoute>
             <Route exact path="/login">
               <Login></Login>
             </Route>
