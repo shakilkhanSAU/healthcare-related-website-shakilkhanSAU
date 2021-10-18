@@ -1,0 +1,25 @@
+.service-info p{
+    color: rgb(44, 44, 44);
+    font-weight: 400;
+    font-size: 18px;
+    text-align: justify;
+}
+
+.service-info h2 {
+    font-weight: 600;
+}
+
+.btn-get-service {
+    padding: 5px 30px;
+    font-weight: 600;
+    font-size: 19px;
+    background-color: #6286cc;
+    border: 2px solid #6286cc;
+    color: #fff;
+    transition: .5s;
+}
+
+.btn-get-service:hover {
+    background-color: white;
+    color: #6286cc;
+}

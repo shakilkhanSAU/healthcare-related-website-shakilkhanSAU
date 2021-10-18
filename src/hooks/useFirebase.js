@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../firebase/firebase.init";
 
@@ -13,25 +13,20 @@ const useFirebase = () => {
     const googleProvider = new GoogleAuthProvider();
 
     const signInWithGoogle = () => {
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                setUser(result.user)
-            })
-            .catch(error => {
-
-            })
+        return signInWithPopup(auth, googleProvider)
     }
 
     // email password authentication system
-    const createUser = (name, email, password) => {
+    const createUser = (email, password) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 // Signed in 
-                console.log(result.user.displayName)
                 setUser(result.user)
+                console.log(result.user)
+                varifyEmail();
             })
             .catch((error) => {
-                // ..
+
             });
     }
 
@@ -55,6 +50,16 @@ const useFirebase = () => {
         });
     }
 
+    // varify  email 
+    const varifyEmail = () => {
+        sendEmailVerification(auth.currentUser)
+            .then((result) => {
+                console.log(result)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
 
     // user state observer
     useEffect(() => {
@@ -76,7 +81,8 @@ const useFirebase = () => {
         createUser,
         logInUser,
         signInWithGoogle,
-        logOut
+        logOut,
+        setUser
     }
 }
 
