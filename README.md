@@ -1,6 +1,7 @@
 # CosGrove Health Care Center
 
-This project [CosGrove Health Care](https://health-care-center-bbecf.web.app/) are related to health care services
+#### The Name of Project: [CosGrove Health Care](https://health-care-center-bbecf.web.app/).
+this project is related to health care services
 
 ## Project Feature
 
