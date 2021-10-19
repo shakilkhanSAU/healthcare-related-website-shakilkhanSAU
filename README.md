@@ -8,4 +8,5 @@ this project is related to health care services. Health care (also health-care o
 * In this project you can See an online presentation of a health care center
 * You can see all services in service section provided by cosgrove
 * You can contact with doctors for any query by this website online
+* Patient can create account in CosGrove so he/she can't lose track
 * 
