@@ -18,7 +18,7 @@ const Login = () => {
     const history = useHistory();
 
 
-    const { signInWithGoogle, createUser, logInUser, setUser } = useAuth();
+    const { signInWithGoogle, createUser, logInUser, setUser, setIsLoading } = useAuth();
 
     const handleSingInGoogle = () => {
         signInWithGoogle()
@@ -27,7 +27,9 @@ const Login = () => {
                 history.push(redirect_uri)
             })
             .catch(error => {
-
+            })
+            .finally(() => {
+                setIsLoading(false)
             })
 
     }
@@ -74,7 +76,7 @@ const Login = () => {
         <div className="login py-5">
             <Row className="container">
                 <Col className="login-form mx-auto" sm={6}>
-                    <div>
+                    <div className="py-4">
                         {
                             isLogin ? <form onSubmit={handleLogin}>
                                 <input onBlur={getEmail} type="email" placeholder="Enter Your Email" id="" required />

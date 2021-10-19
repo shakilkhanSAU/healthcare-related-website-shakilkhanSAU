@@ -1,0 +1,35 @@
+.about {
+    overflow-x: hidden;
+}
+
+.about p {
+    font-size: 18px;
+    color: black;
+}
+
+.first {
+    background-color: #ffebea;
+    padding: 30px 8%;
+    margin: 0;
+}
+.second {
+    background-color: #ffffff;
+    padding: 30px 8%;
+    margin: 0;
+}
+.third {
+    background-color: #b7c8fe;
+    padding: 0px 8%;
+    margin: 0;
+}
+.fourth {
+    background-color: #fff;
+    padding: 30px 8%;
+    margin: 0;
+}
+
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

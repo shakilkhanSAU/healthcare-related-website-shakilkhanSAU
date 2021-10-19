@@ -6,32 +6,46 @@ import SingleService from './pages/Services/SingleService/SingleService';
 import Login from './pages/Login/Login/Login';
 import AuthProvider from './Context/AuthProvider';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
+import Footer from './pages/Shared/Footer/Footer';
+import ContactUs from './pages/ContactUs/ContactUs';
+import AboutUs from './pages/AboutUs/AboutUs';
+import NotFound from './pages/NotFound/NotFound';
 
 
 function App() {
-  return (
-    <div>
-      <AuthProvider>
-        <BrowserRouter>
-          <Header></Header>
-          <Switch>
-            <Route exact path="/">
-              <Home></Home>
-            </Route>
-            <Route exact path="/home">
-              <Home></Home>
-            </Route>
-            <PrivateRoute exact path="/services/:serviceId">
-              <SingleService></SingleService>
-            </PrivateRoute>
-            <Route exact path="/login">
-              <Login></Login>
-            </Route>
-          </Switch>
-        </BrowserRouter>
-      </AuthProvider>
-    </div>
-  );
+	return (
+		<div>
+			<AuthProvider>
+				<BrowserRouter>
+					<Header></Header>
+					<Switch>
+						<Route exact path="/">
+							<Home></Home>
+						</Route>
+						<Route exact path="/home">
+							<Home></Home>
+						</Route>
+						<PrivateRoute exact path="/services/:serviceId">
+							<SingleService></SingleService>
+						</PrivateRoute>
+						<Route exact path="/login">
+							<Login></Login>
+						</Route>
+						<Route exact path="/contact">
+							<ContactUs></ContactUs>
+						</Route>
+						<Route exact path="/about">
+							<AboutUs></AboutUs>
+						</Route>
+						<Route path="*">
+							<NotFound></NotFound>
+						</Route>
+					</Switch>
+					<Footer></Footer>
+				</BrowserRouter>
+			</AuthProvider>
+		</div>
+	);
 }
 
 export default App;

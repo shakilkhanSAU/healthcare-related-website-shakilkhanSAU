@@ -7,12 +7,14 @@ initializeAuthentication();
 
 const useFirebase = () => {
     const [user, setUser] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
 
 
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
 
     const signInWithGoogle = () => {
+        setIsLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
 
@@ -43,11 +45,14 @@ const useFirebase = () => {
 
 
     const logOut = () => {
+        setIsLoading(true)
         signOut(auth).then(() => {
             // Sign-out successful.
         }).catch((error) => {
             // An error happened.
-        });
+        }).finally(() => {
+            setIsLoading(false)
+        })
     }
 
     // varify  email 
@@ -70,6 +75,7 @@ const useFirebase = () => {
             else {
                 setUser({})
             }
+            setIsLoading(false);
         })
         return unsubscribed;
     }, []);
@@ -82,7 +88,9 @@ const useFirebase = () => {
         logInUser,
         signInWithGoogle,
         logOut,
-        setUser
+        setUser,
+        isLoading,
+        setIsLoading
     }
 }
 
