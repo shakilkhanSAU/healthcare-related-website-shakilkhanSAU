@@ -30,7 +30,7 @@ const AboutUs = () => {
                 </Row>
             </div>
             <div className="third">
-                <Row className="about-section">
+                <Row className="about-section pt-5 pt-md-0">
                     <Col xs={12} md={6}>
                         <h2>Special Care for Children</h2>
                         <p>Our patients can expect Quality Care, Convenient Locations, Compassionate Providers, Friendly & Knowledgeable Staff, Wide Range of Accepted Health Plans. Please visit our services page for more . . .</p>

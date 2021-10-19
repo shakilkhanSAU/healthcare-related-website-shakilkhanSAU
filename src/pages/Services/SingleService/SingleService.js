@@ -10,12 +10,12 @@ const SingleService = () => {
     const findService = services.find(service => service.id === serviceId)
 
     return (
-        <div className="container py-5">
+        <div className="container pt-4 pb-5">
             <Row>
-                <Col md={6} xs={12} className="mx-auto px-2">
+                <Col lg={6} xs={12} className="mx-auto px-2">
                     <img src={findService?.img} className="img-fluid" alt="city scan" />
                 </Col>
-                <Col md={6} xs={12}>
+                <Col lg={6} xs={12}>
                     <div className="service-info">
                         <h2 className="pt-4">{findService?.title}</h2>
                         <hr />
