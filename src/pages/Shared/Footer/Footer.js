@@ -14,9 +14,9 @@ const Footer = () => {
                     </Col>
                     <Col className="footer-contact" xs={12} md={4}>
                         <h3>Contact Info</h3>
-                        <p><i class="fas fa-map-marker-alt pe-2"></i>Road No: 123/A, Hironpur, Netrokona</p>
-                        <p><i class="fas fa-clock pe-2"></i>9:00am - 4:00pm</p>
-                        <p><i class="fas fa-phone-alt pe-2"></i>+880 112 323 243</p>
+                        <p><i className="fas fa-map-marker-alt pe-2"></i>Road No: 123/A, Hironpur, Netrokona</p>
+                        <p><i className="fas fa-clock pe-2"></i>9:00am - 4:00pm</p>
+                        <p><i className="fas fa-phone-alt pe-2"></i>+880 112 323 243</p>
                     </Col>
                     <Col className="footer-contact" xs={12} md={4}>
                         <h3>Quick Access</h3>

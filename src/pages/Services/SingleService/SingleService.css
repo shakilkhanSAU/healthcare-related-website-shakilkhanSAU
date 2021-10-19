@@ -23,3 +23,13 @@
     background-color: white;
     color: #6286cc;
 }
+
+.doctors-area {
+    margin-top: 50px;
+}
+
+.doctors-area h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}

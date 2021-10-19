@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import logo from './logo.png'
 import './Header.css'
 import useAuth from '../../../hooks/useAuth';
+import { HashLink } from 'react-router-hash-link';
+
 
 const Header = () => {
     const { user, logOut } = useAuth();
@@ -20,7 +22,7 @@ const Header = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto">
                         <Link className="me-lg-3 nav-link" as={Link} to="/home">Home</Link>
-                        <Nav.Link className="me-lg-3 nav-link" as={Link} to="#services">Services</Nav.Link>
+                        <Nav.Link className="me-lg-3 nav-link" as={HashLink} to="/home#services">Services</Nav.Link>
                         <Nav.Link className="me-lg-3 nav-link" as={Link} to="/about">About</Nav.Link>
                         <Nav.Link className="me-lg-3 nav-link" as={Link} to="/contact">Contact</Nav.Link>
                         {
@@ -29,11 +31,12 @@ const Header = () => {
                                 <Nav.Link className="me-lg-3 nav-link" as={Link} to="/login">Sign In</Nav.Link>
                         }
                         <Navbar.Text>
-                            <a href="#login">
+                            <Link to="/user">
                                 {
-                                    user.displayName && <img className="user-img" src={user.photoURL} alt="" />
+                                    user?.photoURL ? <img className="user-img" src={user?.photoURL} alt="" /> :
+                                        <span className="user-name">{user?.displayName?.split(" ")}</span>
                                 }
-                            </a>
+                            </Link>
                         </Navbar.Text>
                     </Nav>
                 </Navbar.Collapse>

@@ -9,30 +9,14 @@ import { useHistory, useLocation } from 'react-router';
 const Login = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [error, setError] = useState('');
     const [password, setPassword] = useState('');
     const [isLogin, setIslogin] = useState(false);
 
+    const { signInWithGoogle, createUser, logInUser, setUser, setIsLoading, varifyEmail } = useAuth();
     const location = useLocation();
     const redirect_uri = location.state?.from || '/home'
-
     const history = useHistory();
-
-
-    const { signInWithGoogle, createUser, logInUser, setUser, setIsLoading } = useAuth();
-
-    const handleSingInGoogle = () => {
-        signInWithGoogle()
-            .then(result => {
-                setUser(result.user)
-                history.push(redirect_uri)
-            })
-            .catch(error => {
-            })
-            .finally(() => {
-                setIsLoading(false)
-            })
-
-    }
 
     // get input value of input field 
     const getName = (e) => {
@@ -48,16 +32,58 @@ const Login = () => {
         setPassword(password)
     }
 
-    // email password login and registration here
-    const handleLogin = (e) => {
-        e.preventDefault();
-        logInUser(email, password)
-        e.target.reset();
+    // all google signin funtionality here
+    const handleSingInGoogle = () => {
+        signInWithGoogle()
+            .then(result => {
+                setUser(result.user)
+                history.push(redirect_uri)
+                setError('')
+            })
+            .catch(error => {
+                setError(error)
+            })
+            .finally(() => {
+                setIsLoading(false)
+            })
     }
+
+    // email password registration here
     const handleCreateUser = (e) => {
         e.preventDefault();
         createUser(email, password)
-        console.log(email, password)
+            .then((result) => {
+                // Signed in 
+                result.user.displayName = name;
+                setUser(result.user)
+                console.log(result.user)
+                varifyEmail();
+                history.push(redirect_uri)
+                setError('')
+            })
+            .catch((error) => {
+                setError(error)
+            })
+            .finally(() => {
+                setIsLoading(false)
+            })
+        e.target.reset();
+    }
+    // login existing user
+    const handleLogin = (e) => {
+        e.preventDefault();
+        logInUser(email, password)
+            .then(result => {
+                setUser(result.user)
+                history.push(redirect_uri)
+                setError('')
+            })
+            .catch(error => {
+                setError(error)
+            })
+            .finally(() => {
+                setIsLoading(false)
+            })
         e.target.reset();
     }
 
@@ -70,13 +96,11 @@ const Login = () => {
         setIslogin(false)
     }
 
-
-
     return (
         <div className="login py-5">
             <Row className="container">
                 <Col className="login-form mx-auto" sm={6}>
-                    <div className="py-4">
+                    <div className="py-4 w-100">
                         {
                             isLogin ? <form onSubmit={handleLogin}>
                                 <input onBlur={getEmail} type="email" placeholder="Enter Your Email" id="" required />
@@ -84,6 +108,7 @@ const Login = () => {
                                 <input onBlur={getPassword} type="password" placeholder="Enter Your Password" id="" required />
                                 <br />
                                 <button className="login-btn" type="submit">Sign in</button>
+                                <small className="error-txt text-danger">{error.message}</small>
                                 <div className="text-center mt-2">
                                     <input onClick={createNew} type="checkbox" id="form-toggler" className="d-none" />
                                     <label className="toggler" htmlFor="form-toggler">Create New Account!</label>
@@ -97,6 +122,7 @@ const Login = () => {
                                     <input onBlur={getPassword} type="password" placeholder="Enter Your Password" required id="" />
                                     <br />
                                     <button className="login-btn" type="submit">Create Account</button>
+                                    <small className="error-txt text-danger">{error.message}</small>
                                     <div className="text-center mt-2">
                                         <input onClick={toggleForm} type="checkbox" id="form-toggler" className="d-none" />
                                         <label className="toggler" htmlFor="form-toggler">Already have an account?</label>
@@ -112,7 +138,7 @@ const Login = () => {
                     </div>
                 </Col>
                 <Col sm={6}>
-                    <img src={backphoto} className="img-fluid" alt="" />
+                    <img src={backphoto} className="img-fluid mt-md-5" alt="" />
                 </Col>
             </Row>
         </div >

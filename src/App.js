@@ -10,6 +10,7 @@ import Footer from './pages/Shared/Footer/Footer';
 import ContactUs from './pages/ContactUs/ContactUs';
 import AboutUs from './pages/AboutUs/AboutUs';
 import NotFound from './pages/NotFound/NotFound';
+import UserDetails from './pages/UserDetails/UserDetails';
 
 
 function App() {
@@ -36,6 +37,9 @@ function App() {
 						</Route>
 						<Route exact path="/about">
 							<AboutUs></AboutUs>
+						</Route>
+						<Route exact path="/user">
+							<UserDetails></UserDetails>
 						</Route>
 						<Route path="*">
 							<NotFound></NotFound>

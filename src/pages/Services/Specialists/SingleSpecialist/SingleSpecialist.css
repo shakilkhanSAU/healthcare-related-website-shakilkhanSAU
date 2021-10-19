@@ -1,0 +1,10 @@
+.cart-body h3 {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.cart-body p {
+    font-size: 18px;
+    font-weight: 400;
+    color: rgb(61, 61, 61);
+}
