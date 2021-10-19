@@ -34,7 +34,7 @@ const Header = () => {
                             <Link to="/user">
                                 {
                                     user?.photoURL ? <img className="user-img" src={user?.photoURL} alt="" /> :
-                                        <span className="user-name">{user?.displayName?.split(" ")}</span>
+                                        <span className="user-logo"><i className="fas fa-user"></i></span>
                                 }
                             </Link>
                         </Navbar.Text>

@@ -26,8 +26,12 @@
     color: gray;
 }
 
-.user-img {
+.user-details-image {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.user-details-image img {
+    width: 150x;
 }

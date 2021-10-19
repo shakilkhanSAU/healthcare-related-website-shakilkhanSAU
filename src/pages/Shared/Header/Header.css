@@ -9,10 +9,6 @@
     box-shadow: 0px 0px 2px rgb(207, 205, 205);
 }
 
-.nav-link:hover {
-    color: crimson;
-}
-
 .sign-out {
     background-color: #fff;
     border: none;
@@ -22,5 +18,13 @@
 
 .user-img {
     width: 25px;
+    border-radius: 50%;
+}
+
+.user-logo {
+    background-color: #fff;
+    color: black;
+    width: 33px;
+    height: 33px;
     border-radius: 50%;
 }
