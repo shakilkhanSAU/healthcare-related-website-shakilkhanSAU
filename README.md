@@ -9,4 +9,5 @@ this project is related to health care services. Health care (also health-care o
 * You can see all services in service section provided by cosgrove
 * You can contact with doctors for any query by this website online
 * Patient can create account in CosGrove so he/she can't lose track
-* 
+* Cosgrove provide google Sign in and Email-password login or creating new user
+* Also provide email varification system so that user management are so good
